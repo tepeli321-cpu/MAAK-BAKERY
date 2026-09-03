@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAAK BAKERY — Kahvaltı, Kruvasan & Tatlı</title>
+<meta name="description" content="MAAK BAKERY — taze kruvasanlar, kahvaltılar, ev yapımı tatlılar ve özenli kahve & çay.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#efe6d6;
+  --bg-alt:#f8f2e6;
+  --bg-alt-2:#e6dac3;
+  --ink:#33241a;
+  --ink-soft:#6b5745;
+  --honey:#c0812b;
+  --honey-dark:#9c661d;
+  --jam:#b85c63;
+  --line:rgba(51,36,26,.14);
+  --line-strong:rgba(51,36,26,.28);
+  --shadow:0 12px 30px -14px rgba(51,36,26,.35);
+  --radius:18px;
+}
+
+*{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Work Sans',sans-serif;
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  margin:0;
+  color:var(--ink);
+}
+
+a{
+  color:inherit;
+}
+
+.wrap{
+  max-width:1160px;
+  margin:auto;
+  padding:0 28px;
+}
+
+.eyebrow{
+  font-family:'Caveat',cursive;
+  font-size:1.4rem;
+  font-weight:700;
+  color:var(--jam);
+  display:inline-block;
+  transform:rotate(-2deg);
+  margin-bottom:6px;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(239,230,214,.9);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 28px;
+}
+
+.wordmark{
+  font-family:'Fraunces',serif;
+  font-size:1.5rem;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.wordmark span{
+  font-family:'Work Sans',sans-serif;
+  font-size:.62rem;
+  font-weight:600;
+  letter-spacing:.22em;
+  color:var(--ink-soft);
+  text-transform:uppercase;
+}
+
+nav.links{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  list-style:none;
+  margin:0;
+  padding:6px;
+  background:rgba(51,36,26,.05);
+  border:1px solid var(--line);
+  border-radius:999px;
+}
+
+nav.links a{
+  text-decoration:none;
+  font-size:.82rem;
+  font-weight:600;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  padding:9px 18px;
+  border-radius:999px;
+  transition:.2s;
+}
+
+nav.links a:hover{
+  color:var(--ink);
+  background:var(--bg-alt);
+}
+
+.call-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--ink);
+  color:var(--bg-alt);
+  text-decoration:none;
+  padding:10px 18px;
+  border-radius:999px;
+  font-size:.88rem;
+  font-weight:600;
+}
+
+.menu-toggle{
+  display:none;
+}
+
+/* FLOATING BUTTONS */
+
+.float-actions{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:200;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.float-btn{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  text-decoration:none;
+  box-shadow:0 10px 22px -8px rgba(51,36,26,.55);
+}
+
+.float-btn.whatsapp{
+  background:#25D366;
+}
+
+.float-btn.instagram{
+  background:radial-gradient(circle at 30% 110%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+
+.float-btn svg{
+  width:25px;
+  height:25px;
+}
+
+.float-btn.backtop{
+  background:var(--ink);
+  border:none;
+  cursor:pointer;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(12px);
+  transition:.25s;
+}
+
+.float-btn.backtop.show{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+}
+
+/* HERO */
+
+.hero{
+  padding:76px 0 60px;
+}
+
+.hero .wrap{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:40px;
+  align-items:center;
+}
+
+.hero h1{
+  font-size:clamp(2.4rem,4.6vw,3.6rem);
+  line-height:1.06;
+}
+
+.hero h1 em{
+  font-style:italic;
+  color:var(--honey-dark);
+}
+
+.hero p.lead{
+  font-size:1.08rem;
+  color:var(--ink-soft);
+  max-width:46ch;
+  margin:20px 0 30px;
+}
+
+.hero-ctas{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn-primary,
+.btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  padding:14px 26px;
+  border-radius:999px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.btn-primary{
+  background:var(--honey);
+  color:white;
+}
+
+.btn-secondary{
+  border:1.5px solid var(--line-strong);
+}
+
+.hero-art{
+  display:flex;
+  justify-content:center;
+  position:relative;
+}
+
+.hero-art svg{
+  width:100%;
+  max-width:400px;
+}
+
+.tag-ribbon{
+  position:absolute;
+  top:-6px;
+  right:6%;
+  background:#5c2e30;
+  color:#f5ead9;
+  font-size:.78rem;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:11px 20px;
+  border-radius:6px 16px 6px 16px;
+  transform:rotate(2deg);
+}
+
+/* MENU */
+
+.menu-section{
+  padding:90px 0 80px;
+  background:var(--bg);
+}
+
+.section-head{
+  text-align:center;
+  max-width:650px;
+  margin:0 auto 45px;
+}
+
+.section-head h2{
+  font-size:clamp(2rem,3.5vw,2.6rem);
+}
+
+.section-head p{
+  color:var(--ink-soft);
+  margin-top:12px;
+}
+
+/* CATEGORY TABS */
+
+.menu-tabs{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:50px;
+}
+
+.menu-tab{
+  background:var(--bg-alt);
+  border:1px solid var(--line);
+  color:var(--ink-soft);
+  padding:11px 22px;
+  border-radius:999px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.menu-tab:hover,
+.menu-tab.active{
+  background:var(--ink);
+  color:var(--bg-alt);
+  border-color:var(--ink);
+}
+
+.menu-panel{
+  display:none;
+}
+
+.menu-panel.active{
+  display:block;
+}
+
+/* CATEGORY PHOTO */
+
+.category-photo{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  display:block;
+  border-radius:var(--radius);
+  margin-bottom:35px;
+  box-shadow:var(--shadow);
+}
+
+/* MENU LIST */
+
+.menu-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px 50px;
+}
+
+.menu-item{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:17px 0;
+  border-bottom:1px dashed var(--line-strong);
+}
+
+.mi-photo{
+  width:72px;
+  height:72px;
+  object-fit:cover;
+  border-radius:13px;
+  flex-shrink:0;
+  box-shadow:var(--shadow);
+}
+
+.mi-text{
+  flex:1;
+  min-width:0;
+}
+
+.name{
+  display:block;
+  font-weight:600;
+  font-size:1.02rem;
+}
+
+.desc{
+  display:block;
+  color:var(--ink-soft);
+  font-size:.84rem;
+  margin-top:4px;
+  line-height:1.4;
+}
+
+.price{
+  font-family:'Fraunces',serif;
+  font-weight:700;
+  color:var(--honey-dark);
+  white-space:nowrap;
+  font-size:1.02rem;
+}
+
+.menu-note{
+  text-align:center;
+  color:var(--ink-soft);
+  font-size:.84rem;
+  font-style:italic;
+  margin-top:35px;
+}
+
+/* STORY */
+
+.story{
+  padding:90px 0;
+  background:var(--bg-alt);
+}
+
+.story-grid{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:48px;
+  align-items:center;
+}
+
+.story-photo{
+  overflow:hidden;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+.story-photo img{
+  width:100%;
+  min-height:320px;
+  object-fit:cover;
+  display:block;
+}
+
+.story-text h2{
+  font-size:clamp(1.8rem,3.2vw,2.3rem);
+  margin-bottom:18px;
+}
+
+.story-text p{
+  color:var(--ink-soft);
+  margin-bottom:14px;
+}
+
+.story-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px;
+}
+
+.badge{
+  background:var(--bg);
+  border:1px solid var(--line);
+  padding:8px 16px;
+  border-radius:999px;
+  font-size:.85rem;
+}
+
+/* GALLERY */
+
+.gallery{
+  background:var(--bg-alt-2);
+  padding:80px 0;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-auto-rows:230px;
+  gap:16px;
+}
+
+.gallery-grid>div:nth-child(1){
+  grid-row:span 2;
+}
+
+.gallery-item{
+  position:relative;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.5s;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.06);
+}
+
+.cap{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:22px 14px 12px;
+  color:#fff;
+  background:linear-gradient(to top,rgba(51,36,26,.75),transparent);
+  font-size:.84rem;
+}
+
+/* LOCATION */
+
+.location{
+  padding:88px 0;
+}
+
+.location-grid{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:44px;
+}
+
+.info-card{
+  background:var(--bg-alt);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:34px 30px;
+}
+
+.info-row{
+  display:flex;
+  gap:16px;
+  padding:16px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.info-row:last-child{
+  border-bottom:none;
+}
+
+.info-row .ico{
+  width:22px;
+  height:22px;
+  color:var(--honey-dark);
+  flex-shrink:0;
+}
+
+.info-row h4{
+  margin:0 0 4px;
+  font-size:.95rem;
+}
+
+.info-row p{
+  margin:0;
+  color:var(--ink-soft);
+  font-size:.9rem;
+}
+
+.hours-list{
+  margin-top:5px;
+}
+
+.hours-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:.88rem;
+  color:var(--ink-soft);
+  padding:3px 0;
+}
+
+.hours-row span:first-child{
+  color:var(--ink);
+  font-weight:500;
+}
+
+.map-frame{
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--line);
+  min-height:340px;
+}
+
+.map-frame iframe{
+  width:100%;
+  height:100%;
+  min-height:340px;
+  border:0;
+}
+
+/* FOOTER */
+
+footer{
+  background:var(--ink);
+  color:#e9ddc8;
+  padding:44px 0 28px;
+}
+
+.footer-grid{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px;
+  padding-bottom:24px;
+  border-bottom:1px solid rgba(233,221,200,.15);
+}
+
+footer .wordmark{
+  color:#e9ddc8;
+}
+
+footer nav{
+  display:flex;
+  gap:24px;
+  flex-wrap:wrap;
+}
+
+footer nav a{
+  text-decoration:none;
+  font-size:.88rem;
+}
+
+.footer-bottom{
+  padding-top:20px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  font-size:.8rem;
+  color:rgba(233,221,200,.55);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:920px){
+
+  .hero .wrap{
+    grid-template-columns:1fr;
+  }
+
+  .hero-art{
+    order:-1;
+    max-width:280px;
+    margin:auto;
+  }
+
+  .menu-list{
+    grid-template-columns:1fr;
+  }
+
+  .story-grid,
+  .location-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-grid{
+    grid-template-columns:repeat(2,1fr);
+    grid-auto-rows:180px;
+  }
+}
+
+@media(max-width:680px){
+
+  .wrap{
+    padding:0 20px;
+  }
+
+  .nav{
+    padding:14px 20px;
+  }
+
+  nav.links{
+    position:fixed;
+    top:64px;
+    left:0;
+    right:0;
+    background:var(--bg-alt);
+    border-radius:0;
+    flex-direction:column;
+    align-items:stretch;
+    padding:20px;
+    transform:translateY(-130%);
+    transition:.25s;
+  }
+
+  nav.links.open{
+    transform:translateY(0);
+  }
+
+  nav.links a{
+    text-transform:none;
+    font-size:.95rem;
+  }
+
+  .menu-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:38px;
+    height:38px;
+    background:none;
+    border:1px solid var(--line-strong);
+    border-radius:10px;
+    cursor:pointer;
+  }
+
+  .call-btn .txt{
+    display:none;
+  }
+
+  .category-photo{
+    height:210px;
+  }
+
+  .menu-tabs{
+    justify-content:flex-start;
+    overflow-x:auto;
+    flex-wrap:nowrap;
+    padding-bottom:8px;
+  }
+
+  .menu-tab{
+    white-space:nowrap;
+  }
+
+  .menu-item{
+    gap:11px;
+  }
+
+  .mi-photo{
+    width:62px;
+    height:62px;
+  }
+
+  .price{
+    font-size:.92rem;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .float-actions{
+    right:16px;
+    bottom:16px;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <div class="nav wrap">
+
+```
+<a href="#top" class="wordmark">
+  MAAK <span>BAKERY</span>
+</a>
+
+<nav class="links" id="navLinks">
+  <a href="#menu">Menü</a>
+  <a href="#galeri">Galeri</a>
+  <a href="#konum">Konum</a>
+  <a href="#iletisim">İletişim</a>
+</nav>
+
+<div style="display:flex;align-items:center;gap:10px">
+
+  <a class="call-btn" href="tel:+905349122709">
+    ☎
+    <span class="txt">0534 912 2709</span>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç">
+    ☰
+  </button>
+
+</div>
+```
+
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="wrap">
+
+```
+<div>
+
+  <span class="eyebrow">bugün fırından taze çıktı</span>
+
+  <h1>
+    Güne <em>tek tabak</em><br>
+    kahvaltıyla başlayın.
+  </h1>
+
+  <p class="lead">
+    Sıcacık kruvasanlar, el yapımı tatlılar ve özenle
+    hazırlanan kahveler — MAAK BAKERY'de her şey
+    aynı sabah tazeliğiyle sofranıza geliyor.
+  </p>
+
+  <div class="hero-ctas">
+    <a href="#menu" class="btn-primary">Menüyü Gör</a>
+    <a href="#konum" class="btn-secondary">Yol Tarifi Al</a>
+  </div>
+
+</div>
+
+<div class="hero-art">
+
+  <div class="tag-ribbon">
+    El Yapımı
+  </div>
+
+  <svg viewBox="0 0 400 400" fill="none">
+
+    <path
+      d="M110 180 h140 v90 a70 70 0 0 1 -140 0 z"
+      stroke="#33241a"
+      stroke-width="4"
+      fill="#f8f2e6"/>
+
+    <path
+      d="M250 195 h22 a26 26 0 0 1 0 52 h-18"
+      stroke="#33241a"
+      stroke-width="4"
+      fill="none"/>
+
+    <ellipse
+      cx="180"
+      cy="180"
+      rx="70"
+      ry="10"
+      fill="#c0812b"
+      opacity=".85"/>
+
+    <path
+      d="M150 150 c-10 -20 10 -20 0 -40"
+      stroke="#6b5745"
+      stroke-width="3"
+      fill="none"/>
+
+    <path
+      d="M180 150 c-10 -20 10 -20 0 -40"
+      stroke="#6b5745"
+      stroke-width="3"
+      fill="none"/>
+
+    <path
+      d="M210 150 c-10 -20 10 -20 0 -40"
+      stroke="#6b5745"
+      stroke-width="3"
+      fill="none"/>
+
+    <path
+      d="M90 300 c20 -40 90 -55 130 -25
+      c-15 5 -25 15 -25 15
+      c15 0 30 5 35 20
+      c-15 -2 -25 5 -25 5
+      c12 5 18 15 18 25
+      c-40 20 -115 5 -133 -40z"
+      fill="#c0812b"
+      stroke="#33241a"
+      stroke-width="3.5"/>
+
+  </svg>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- MENU -->
+
+<section class="menu-section" id="menu">
+
+<div class="wrap">
+
+<div class="section-head">
+
+<span class="eyebrow">lezzetler</span>
+
+<h2>MAAK BAKERY Menüsü</h2>
+
+<p>
+Güne güzel bir kahvaltıyla başlayın,
+kruvasanlarımızı deneyin veya kahvenizin
+yanına tatlı bir şeyler seçin.
+</p>
+
+</div>
+
+<!-- CATEGORY BUTTONS -->
+
+<div class="menu-tabs">
+
+<button class="menu-tab active" data-tab="kahvaltiliklar">
+Kahvaltılıklar
+</button>
+
+<button class="menu-tab" data-tab="kruvasanlar">
+Kruvasanlar
+</button>
+
+<button class="menu-tab" data-tab="icecekler">
+İçecekler
+</button>
+
+<button class="menu-tab" data-tab="tatlilar">
+Tatlılar
+</button>
+
+<button class="menu-tab" data-tab="sicak-kahveler">
+Sıcak Kahveler
+</button>
+
+<button class="menu-tab" data-tab="soguk-kahveler">
+Soğuk Kahveler
+</button>
+
+</div>
+
+<!-- KAHVALTILIKLAR -->
+
+<div class="menu-panel active" data-panel="kahvaltiliklar">
+
+<img
+class="category-photo"
+src="https://images.unsplash.com/photo-1768319920501-2d124ccfd8dc?w=1400&q=85&auto=format&fit=crop"
+alt="MAAK BAKERY kahvaltılıklar">
+
+<div class="menu-list">
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1768319920501-2d124ccfd8dc?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Kahvaltı Tabağı</span>
+<span class="desc">2 dilim ekşi maya ekmek, çırpılmış yumurta, 3 çeşit peynir, zeytin, söğüş, reçel</span>
+</div>
+<span class="price">₺550,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1682622110419-b671026a4536?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Çırpılmış Yumurta Tabağı</span>
+<span class="desc">Yumurta, beyaz peynir, patates kızartması, söğüş, bal</span>
+</div>
+<span class="price">₺420,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1676272650338-faaea8e5e5fd?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Sıcak Kahvaltı Tabağı</span>
+<span class="desc">2 dilim ekşi mayalı ekmek, yumurta, ızgara sucuk, patates kızartması, ızgara hellim peyniri, reçel</span>
+</div>
+<span class="price">₺550,00</span>
+</div>
+
+</div>
+</div>
+
+<!-- KRUVASANLAR -->
+
+<div class="menu-panel" data-panel="kruvasanlar">
+
+<img
+class="category-photo"
+src="https://images.unsplash.com/photo-1548538931-b47653628cdc?w=1400&q=85&auto=format&fit=crop"
+alt="MAAK BAKERY kruvasanlar">
+
+<div class="menu-list">
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1548538931-b47653628cdc?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Klasik Kruvasan</span>
+<span class="desc">Sade kruvasan</span>
+</div>
+<span class="price">₺300,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1757124034342-3bbd5364a41d?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Sucuk Kruvasan</span>
+<span class="desc">Göz yumurta, kasap sucuk, eski kaşar peyniri, zeytin, reçel, salata</span>
+</div>
+<span class="price">₺560,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1757124034578-2ec0f0843fcc?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Kruvasan Sandviç</span>
+<span class="desc">Kaşar peyniri, domates, kıvırcık marul, hindi füme</span>
+</div>
+<span class="price">₺450,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1738824921940-02639f908ff0?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Hızlı Kruvasan Tabağı</span>
+<span class="desc">Klasik kruvasan, söğüş, zeytin, labne peyniri, Nutella</span>
+</div>
+<span class="price">₺430,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1757124034100-870a3badc2d8?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Hindi Füme Kruvasan</span>
+<span class="desc">Yumurta, cheddar, ıspanak sote, zeytin, reçel, salata</span>
+</div>
+<span class="price">₺570,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1757124034342-3bbd5364a41d?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Üç Peynirli Kruvasan</span>
+<span class="desc">Cheddar peyniri, çeçil peynir, eski kaşar peyniri. Zeytin, günün reçeli, söğüş ile</span>
+</div>
+<span class="price">₺480,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1757124034578-2ec0f0843fcc?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Mozzarella Kruvasan</span>
+<span class="desc">Mozzarella peyniri, çeri domates, pesto sos, zeytin, reçel, salata</span>
+</div>
+<span class="price">₺590,00</span>
+</div>
+
+</div>
+</div>
+
+<!-- İÇECEKLER -->
+
+<div class="menu-panel" data-panel="icecekler">
+
+<img
+class="category-photo"
+src="https://images.unsplash.com/photo-1567407453533-ce35bc03ecb4?w=1400&q=85&auto=format&fit=crop"
+alt="MAAK BAKERY içecekler">
+
+<div class="menu-list">
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1657040111323-0aa59a7af59d?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Su (50 Cl.)</span>
+<span class="desc">Pet şişe</span>
+</div>
+<span class="price">₺60,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1537286164997-b6a9bbac8b55?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Karışık Meyve Suyu</span>
+<span class="desc">Soğuk servis edilir.</span>
+</div>
+<span class="price">₺100,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Apple Breeze</span>
+<span class="desc">Soğuk servis edilir.</span>
+</div>
+<span class="price">₺290,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Mürver Çiçeği</span>
+<span class="desc">Soğuk servis edilir.</span>
+</div>
+<span class="price">₺290,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Berry Hibiscus</span>
+<span class="desc">Soğuk servis edilir.</span>
+</div>
+<span class="price">₺290,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1556881286-fc6915169721?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Sade Soda (20 Cl.)</span>
+<span class="desc">Cam şişe</span>
+</div>
+<span class="price">₺90,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Churchill Soda</span>
+<span class="desc">Soda, limon, tuz</span>
+</div>
+<span class="price">₺180,00</span>
+</div>
+
+</div>
+</div>
+
+<!-- TATLILAR -->
+
+<div class="menu-panel" data-panel="tatlilar">
+
+<img
+class="category-photo"
+src="https://images.unsplash.com/photo-1702925614886-50ad13c88d3f?w=1400&q=85&auto=format&fit=crop"
+alt="MAAK BAKERY tatlılar">
+
+<div class="menu-list">
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Limon</span>
+<span class="desc">Beyaz Belçika çikolatalı mousse, limon curd, magnum sos</span>
+</div>
+<span class="price">₺450,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Matilda</span>
+<span class="desc">Dilim olarak servis edilir.</span>
+</div>
+<span class="price">₺450,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1702925614886-50ad13c88d3f?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Lotuslu Pasta</span>
+<span class="desc">Adet olarak servis edilir.</span>
+</div>
+<span class="price">₺450,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1732105094945-a22182f23169?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Profiterol</span>
+<span class="desc">Adet olarak servis edilir.</span>
+</div>
+<span class="price">₺420,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1732105094945-a22182f23169?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Brownie</span>
+<span class="desc">Dilim olarak servis edilir.</span>
+</div>
+<span class="price">₺450,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1738824921940-02639f908ff0?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Lotus Kruvasan</span>
+<span class="desc">Tek kişilik</span>
+</div>
+<span class="price">₺470,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1519869325930-281384150729?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Sweet Bowl</span>
+<span class="desc">Tek kişilik</span>
+</div>
+<span class="price">₺450,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Beyaz Çikolatalı Brownie</span>
+<span class="desc">Belçika çikolata</span>
+</div>
+<span class="price">₺400,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Belçika Çikolatalı Kruvasan</span>
+<span class="desc">Tek kişilik</span>
+</div>
+<span class="price">₺430,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Lotuslu Cookie</span>
+<span class="desc">Tereyağı, lotus kreması, lotus bisküvisi, drop beyaz Belçika çikolatası, 110 gr</span>
+</div>
+<span class="price">₺300,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Antep Fıstığı</span>
+<span class="desc">Beyaz Belçika çikolatalı mousse, Antep fıstığı ezmesi, kek, magnum sos</span>
+</div>
+<span class="price">₺450,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Dev Cookie</span>
+<span class="desc">Dilim olarak servis edilir.</span>
+</div>
+<span class="price">₺350,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Bademli Budapeşte</span>
+<span class="desc">Bademli mereng, pastacı kreması, çilek.</span>
+</div>
+<span class="price">₺420,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Çikolatalı Pasta</span>
+<span class="desc">Adet olarak servis edilir.</span>
+</div>
+<span class="price">₺450,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1738824921940-02639f908ff0?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Meyveli Kruvasan</span>
+<span class="desc">Pastacı kreması, muz, çilek</span>
+</div>
+<span class="price">₺470,00</span>
+</div>
+
+</div>
+</div>
+
+<!-- SICAK KAHVELER -->
+
+<div class="menu-panel" data-panel="sicak-kahveler">
+
+<img
+class="category-photo"
+src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1400&q=85&auto=format&fit=crop"
+alt="MAAK BAKERY sıcak kahveler">
+
+<div class="menu-list">
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1510707577719-ae7c14805e32?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Single Espresso</span>
+<span class="desc">Sıcak servis edilir.</span>
+</div>
+<span class="price">₺140,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Toffee Nut Latte</span>
+<span class="desc">Sıcak servis edilir.</span>
+</div>
+<span class="price">₺280,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Filtre Kahve</span>
+<span class="desc">Sıcak servis edilir.</span>
+</div>
+<span class="price">₺190,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Vanilya Latte</span>
+<span class="desc">Sıcak servis edilir.</span>
+</div>
+<span class="price">₺280,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Mocha</span>
+<span class="desc">Sıcak servis edilir.</span>
+</div>
+<span class="price">₺280,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1534687941688-651ccaafbff8?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Lotus Latte</span>
+<span class="desc">Sıcak servis edilir.</span>
+</div>
+<span class="price">₺280,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Cappuccino</span>
+<span class="desc">Sıcak servis edilir.</span>
+</div>
+<span class="price">₺220,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1510707577719-ae7c14805e32?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Double Espresso</span>
+<span class="desc">Sıcak servis edilir.</span>
+</div>
+<span class="price">₺180,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Americano</span>
+<span class="desc">Sıcak servis edilir.</span>
+</div>
+<span class="price">₺190,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Flat White</span>
+<span class="desc">Sıcak servis edilir.</span>
+</div>
+<span class="price">₺220,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Sütlü Filtre Kahve</span>
+<span class="desc">Sıcak servis edilir.</span>
+</div>
+<span class="price">₺220,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Caramel Latte</span>
+<span class="desc">Sıcak servis edilir.</span>
+</div>
+<span class="price">₺280,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">White Chocolate Mocha</span>
+<span class="desc">Sıcak servis edilir.</span>
+</div>
+<span class="price">₺280,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Spanish Latte</span>
+<span class="desc">Sıcak servis edilir.</span>
+</div>
+<span class="price">₺280,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Latte</span>
+<span class="desc">Sıcak servis edilir.</span>
+</div>
+<span class="price">₺220,00</span>
+</div>
+
+</div>
+</div>
+
+<!-- SOĞUK KAHVELER -->
+
+<div class="menu-panel" data-panel="soguk-kahveler">
+
+<img
+class="category-photo"
+src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=1400&q=85&auto=format&fit=crop"
+alt="MAAK BAKERY soğuk kahveler">
+
+<div class="menu-list">
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Iced Mocha</span>
+<span class="desc">Soğuk servis edilir.</span>
+</div>
+<span class="price">₺290,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Iced Americano</span>
+<span class="desc">Soğuk servis edilir.</span>
+</div>
+<span class="price">₺200,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Iced Filter Coffee</span>
+<span class="desc">Soğuk servis edilir.</span>
+</div>
+<span class="price">₺200,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1592663527359-cf6642f54cff?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Iced Vanilya Latte</span>
+<span class="desc">Soğuk servis edilir.</span>
+</div>
+<span class="price">₺290,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Iced Caramel Latte</span>
+<span class="desc">Soğuk servis edilir.</span>
+</div>
+<span class="price">₺290,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Iced White Chocolate Mocha</span>
+<span class="desc">Soğuk servis edilir.</span>
+</div>
+<span class="price">₺290,00</span>
+</div>
+
+<div class="menu-item">
+<img class="mi-photo" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&q=80&auto=format&fit=crop">
+<div class="mi-text">
+<span class="name">Iced Latte</span>
+<span class="desc">Soğuk servis edilir.</span>
+</div>
+<span class="price">₺220,00</span>
+</div>
+
+</div>
+</div>
+
+<p class="menu-note">
+* Menüdeki fiyatlar güncel fiyat listesinden alınmıştır.
+</p>
+
+</div>
+</section>
+
+<!-- STORY -->
+
+<section class="story">
+
+<div class="wrap story-grid">
+
+<div class="story-photo">
+
+<img
+src="https://images.unsplash.com/photo-1757124034100-870a3badc2d8?w=900&q=80&auto=format&fit=crop"
+alt="MAAK BAKERY">
+
+</div>
+
+<div class="story-text">
+
+<span class="eyebrow">bizim hikayemiz</span>
+
+<h2>
+Fırından sofranıza,
+aynı sıcaklıkla.
+</h2>
+
+<p>
+MAAK BAKERY, güne güzel başlamayı hak eden herkes için var.
+Her sabah erkenden başlayan hamur işi, taze demlenen kahve
+ve özenle hazırlanan tabaklarla; ister yalnız bir fincan kahve
+için uğrayın, ister kalabalık bir kahvaltı sofrası kurun —
+kapımız hep açık.
+</p>
+
+<p>
+Sultanbeyli'nin göbeğinde, mahalle sıcaklığını kaybetmeden,
+her detayında emek olan bir mekan olmayı sürdürüyoruz.
+</p>
+
+<div class="story-badges">
+<span class="badge">🥐 Her gün taze fırın</span>
+<span class="badge">☕ Özenle hazırlanan kahve</span>
+<span class="badge">📍 Sultanbeyli, İstanbul</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GALERİ -->
+
+<section class="gallery" id="galeri">
+
+<div class="wrap">
+
+<div class="section-head">
+
+<span class="eyebrow">içeriden kareler</span>
+
+<h2>Galeri</h2>
+
+<p>MAAK BAKERY'den kareler.</p>
+
+</div>
+
+<div class="gallery-grid">
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1738824921940-02639f908ff0?w=900&q=80&auto=format&fit=crop" alt="Kruvasan">
+<span class="cap">Çikolatalı Kruvasan</span>
+</div>
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1768319920501-2d124ccfd8dc?w=700&q=80&auto=format&fit=crop" alt="Kahvaltı">
+<span class="cap">MAAK Kahvaltı</span>
+</div>
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1761027101409-fa96d88349c7?w=700&q=80&auto=format&fit=crop" alt="Avokadolu tabak">
+<span class="cap">Avokadolu Tabak</span>
+</div>
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1768224949380-59e6ea75038c?w=700&q=80&auto=format&fit=crop" alt="Kahvaltı">
+<span class="cap">Kahvaltı Tabakları</span>
+</div>
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1760661599540-b2fc79b5f8a7?w=700&q=80&auto=format&fit=crop" alt="Kruvasan">
+<span class="cap">Paket Servis</span>
+</div>
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1577906096429-f73c2c312435?w=700&q=80&auto=format&fit=crop" alt="Kahvaltı">
+<span class="cap">Mini Tabaklar</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LOCATION -->
+
+<section class="location" id="konum">
+
+<div class="wrap">
+
+<div class="section-head">
+
+<span class="eyebrow">bizi bulun</span>
+
+<h2>Konum & İletişim</h2>
+
+</div>
+
+<div class="location-grid">
+
+<div class="info-card" id="iletisim">
+
+<div class="info-row">
+
+<div class="ico">📍</div>
+
+<div>
+
+<h4>Adres</h4>
+
+<p>
+A:72 İç Avlu, Merkez Hayat Çarşı, Hasanpaşa,<br>
+Fatih Blv. No:33 AB, 34920 Sultanbeyli/İstanbul
+</p>
+
+</div>
+
+</div>
+
+<div class="info-row">
+
+<div class="ico">☎</div>
+
+<div>
+
+<h4>Telefon</h4>
+
+<p>
+<a href="tel:+905349122709">
+0534 912 2709
+</a>
+</p>
+
+</div>
+
+</div>
+
+<div class="info-row">
+
+<div class="ico">◎</div>
+
+<div>
+
+<h4>Instagram</h4>
+
+<p>
+<a href="https://www.instagram.com/maak.bakery/" target="_blank" rel="noopener">
+@maak.bakery
+</a>
+</p>
+
+</div>
+
+</div>
+
+<div class="info-row">
+
+<div class="ico">◷</div>
+
+<div>
+
+<h4>Çalışma Saatleri</h4>
+
+<div class="hours-list">
+
+<div class="hours-row">
+<span>Pazartesi</span>
+<span>11:30–00:00</span>
+</div>
+
+<div class="hours-row">
+<span>Salı</span>
+<span>11:30–00:00</span>
+</div>
+
+<div class="hours-row">
+<span>Çarşamba</span>
+<span>11:30–00:00</span>
+</div>
+
+<div class="hours-row">
+<span>Perşembe</span>
+<span>11:30–00:00</span>
+</div>
+
+<div class="hours-row">
+<span>Cuma</span>
+<span>11:30–01:00</span>
+</div>
+
+<div class="hours-row">
+<span>Cumartesi</span>
+<span>11:30–01:00</span>
+</div>
+
+<div class="hours-row">
+<span>Pazar</span>
+<span>11:30–01:00</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="map-frame">
+
+<iframe
+src="https://www.google.com/maps?q=MAAK+BAKERY+Fatih+Bulvarı+No:33+Hasanpaşa+Sultanbeyli+İstanbul&output=embed"
+loading="lazy"
+referrerpolicy="no-referrer-when-downgrade"
+title="MAAK BAKERY konumu">
+</iframe>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- FLOATING BUTTONS -->
+
+<div class="float-actions">
+
+<a
+class="float-btn instagram"
+href="https://www.instagram.com/maak.bakery/"
+target="_blank"
+rel="noopener"
+aria-label="Instagram">
+◎ </a>
+
+<a
+class="float-btn whatsapp"
+href="https://wa.me/905349122709"
+target="_blank"
+rel="noopener"
+aria-label="WhatsApp">
+☎ </a>
+
+<button
+class="float-btn backtop"
+id="backTop"
+aria-label="Yukarı dön">
+↑ </button>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="wrap">
+
+<div class="footer-grid">
+
+<a href="#top" class="wordmark">
+MAAK <span>BAKERY</span>
+</a>
+
+<nav>
+
+<a href="#menu">Menü</a> <a href="#galeri">Galeri</a> <a href="#konum">Konum</a> <a href="tel:+905349122709">0534 912 2709</a>
+
+<a
+href="https://www.instagram.com/maak.bakery/"
+target="_blank"
+rel="noopener">
+Instagram </a>
+
+</nav>
+
+</div>
+
+<div class="footer-bottom">
+
+<span>
+© <span id="year"></span> MAAK BAKERY
+</span>
+
+<span>
+Her gün taze, her gün özenli.
+</span>
+
+</div>
+
+</div>
+
+</footer>
+
+<script>
+
+/* YIL */
+
+document.getElementById('year').textContent =
+new Date().getFullYear();
+
+
+/* MOBİL MENÜ */
+
+const toggle =
+document.getElementById('menuToggle');
+
+const navLinks =
+document.getElementById('navLinks');
+
+toggle.addEventListener('click',()=>{
+  navLinks.classList.toggle('open');
+});
+
+navLinks.querySelectorAll('a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    navLinks.classList.remove('open');
+  });
+});
+
+
+/* MENÜ KATEGORİLERİ */
+
+const tabs =
+document.querySelectorAll('.menu-tab');
+
+const panels =
+document.querySelectorAll('.menu-panel');
+
+tabs.forEach(tab=>{
+
+  tab.addEventListener('click',()=>{
+
+    tabs.forEach(t=>{
+      t.classList.remove('active');
+    });
+
+    panels.forEach(panel=>{
+      panel.classList.remove('active');
+    });
+
+    tab.classList.add('active');
+
+    const target =
+      document.querySelector(
+        '.menu-panel[data-panel="' +
+        tab.dataset.tab +
+        '"]'
+      );
+
+    if(target){
+      target.classList.add('active');
+    }
+
+  });
+
+});
+
+
+/* YUKARI ÇIK */
+
+const backTop =
+document.getElementById('backTop');
+
+window.addEventListener('scroll',()=>{
+
+  if(window.scrollY > 480){
+    backTop.classList.add('show');
+  }else{
+    backTop.classList.remove('show');
+  }
+
+});
+
+backTop.addEventListener('click',()=>{
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+
+});
+
+</script>
+
+</body>
+</html>
